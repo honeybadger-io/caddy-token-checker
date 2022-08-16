@@ -1,0 +1,13 @@
+{
+  debug
+  order token_check before respond
+}
+
+:2020 {
+  token_check {
+    key_prefix token:
+    query_parameter api_key
+    redis_url {$REDIS_URL}
+  }
+  respond "Howdy!"
+}
